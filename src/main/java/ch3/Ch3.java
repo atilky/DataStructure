@@ -48,7 +48,6 @@ public class Ch3 {
         }
 
 
-
         return null;
     }
 
@@ -62,10 +61,8 @@ public class Ch3 {
 
         System.out.println(node1);
 
-        ListNode node = reverseListNode(node1);
+        ListNode node = reverseListNode2(node1);
         System.out.println(node);
-
-
     }
 
 
