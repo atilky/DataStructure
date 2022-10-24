@@ -46,10 +46,26 @@ public class Ch3 {
             prev = cur;
             cur = next;
         }
-
-
-        return null;
+        return prev;
     }
+
+    public static ListNode reverseListNode3(ListNode head){
+
+        if (head == null || head.next == null){
+            return head;
+        }
+
+        //1.讓5指向4
+        //2.4指向null
+        //3.3可以找到4
+        ListNode new_node = reverseListNode3(head.next);
+        head.next.next = head;
+        head.next = null;
+        return new_node;
+    }
+
+
+
 
     public static void main(String[] args) {
 
@@ -61,8 +77,15 @@ public class Ch3 {
 
         System.out.println(node1);
 
-        ListNode node = reverseListNode2(node1);
+        ListNode node = reverseListNode3(node1);
         System.out.println(node);
+
+        int a = 5;
+        int b = 6;
+        System.out.println(a += b);
+        System.out.println(a + b);
+        System.out.println(a + b);
+
     }
 
 
