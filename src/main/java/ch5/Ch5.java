@@ -11,13 +11,33 @@ import java.util.List;
 public class Ch5 {
 
     /**
-     *
+     * 學習 Two Point
      * @param args
      */
     public static void main(String[] args) {
         int [] num = {0, 0, 0, 1, 2, 2, 3, 3, 4, 4};
-        int len = case1(num);
-        System.out.println(len);
+//        int len = case1(num);
+        int case2 = case2(num);
+        System.out.println(case2);
+    }
+
+    /**
+     * 1.slow位置元素跟quick位置元素 相同, quick往後指
+     * 2.slow位置元素跟quick位置元素 不同, slow + 1位置元素 = quick位置元素, 然後兩個指針一起向後
+     * @return slow 指針位置 + 1
+     * 時間複雜度O(n), 空間複雜度O(1)
+     */
+    public static int case2(int [] num){
+
+        int slow = 0;
+        for (int quick = 1; quick < num.length; quick++) {
+            if (num[slow] != num[quick]){
+                num[slow+1] = num[quick];
+                slow++;
+            }
+        }
+
+        return slow + 1;
     }
 
     /**
